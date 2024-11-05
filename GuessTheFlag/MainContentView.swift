@@ -41,9 +41,7 @@ struct MainContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 4)
+                            FlagImage(country: countries[number])
                         }
                     }
                 }.frame(maxWidth: .infinity)
@@ -113,6 +111,15 @@ struct MainContentView: View {
         score = 0
         questionCount = 0
         showFinalAlert = false
+    }
+}
+
+struct FlagImage: View {
+    var country: String
+    var body: some View {
+        Image(country)
+            .clipShape(.capsule)
+            .shadow(radius: 4)
     }
 }
 
